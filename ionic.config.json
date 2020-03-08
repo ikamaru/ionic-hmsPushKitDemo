@@ -1,5 +1,7 @@
 {
   "name": "ionic-hmsPushKitDemo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
