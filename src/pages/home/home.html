@@ -7,7 +7,9 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="getToken()">get Token</button>
-  <button ion-button (click)="checkHMS()">Check HMS</button>
-  <button ion-button (click)="checkGMS()">Check GMS</button>
+  <button ion-button full (click)="subscribeToTopic()">subscribe to the topic "update"</button>
+  <button ion-button full (click)="unsubscribeFromTopic()">unsubscribe from the topic "update"</button>
+  <button ion-button full (click)="getToken()">get Token</button>
+  <button ion-button full (click)="checkHMS()">Check HMS</button>
+  <button ion-button full (click)="checkGMS()">Check GMS</button>
 </ion-content>

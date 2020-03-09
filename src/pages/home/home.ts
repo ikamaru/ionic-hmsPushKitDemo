@@ -10,10 +10,42 @@ declare var cordova;
 })
 
 export class HomePage {
-
+	topic="update";
  	constructor(private loadingController:LoadingController) {}
  	
 
+ 	async subscribeToTopic(){
+ 		const loading = await this.loadingController.create({
+	      content: 'subscribe to '+this.topic+' ...'
+	    });
+	    await loading.present();
+		cordova.plugins.HMSPushKit.subscribeToTopic(
+			this.topic,
+			(msg) => {
+				console.log(msg);
+		    	alert(msg);
+		    	loading.dismiss();
+			},(err) => {
+		    	alert(err);
+			    loading.dismiss();
+			});
+ 	}
+ 	async unsubscribeFromTopic(){
+ 		const loading = await this.loadingController.create({
+	      content: 'unsubscribe from '+this.topic+' ...'
+	    });
+	    await loading.present();
+		cordova.plugins.HMSPushKit.unsubscribeFromTopic(
+			this.topic,
+			(msg) => {
+				console.log(msg);
+		    	alert(msg);
+		    	loading.dismiss();
+			},(err) => {
+		    	alert(err);
+			    loading.dismiss();
+			});
+ 	}
  	async getToken(){
  		const loading = await this.loadingController.create({
 	      content: 'get token ...'
